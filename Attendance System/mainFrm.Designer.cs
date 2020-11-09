@@ -1,6 +1,6 @@
 ﻿namespace Attendance_System
 {
-    partial class formAttendance
+    partial class mainFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // formAttendance
+            // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "formAttendance";
+            this.Name = "mainFrm";
             this.Text = "Attendance System";
+            this.Activated += new System.EventHandler(this.mainFrm_Activated);
             this.ResumeLayout(false);
 
         }

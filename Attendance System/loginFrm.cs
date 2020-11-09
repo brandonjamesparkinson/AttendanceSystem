@@ -12,9 +12,32 @@ namespace Attendance_System
 {
     public partial class loginFrm : Form
     {
+        public bool loginFlag { get; set; }
         public loginFrm()
         {
             InitializeComponent();
+            loginFlag = false;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            DataSet1TableAdapters.UsersTableAdapter userAda = new DataSet1TableAdapters.UsersTableAdapter();
+            DataTable dt = userAda.GetDataByUserAndPass(metroTextBoxPassword.Text, metroTextBoxPassword.Text);
+
+            if (dt.Rows.Count > 0)
+            {
+                // valid login
+                MessageBox.Show("Login Successful.");
+                loginFlag = true;
+            }
+            else
+            {
+                // not valid
+                MessageBox.Show("Access Denied");
+                loginFlag = false;
+            }
+
+            Close();
         }
     }
 }

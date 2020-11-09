@@ -39,9 +39,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::Attendance_System.Properties.Resources.key;
             this.pictureBox1.Location = new System.Drawing.Point(55, 41);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(214, 142);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -85,6 +87,7 @@
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // loginFrm
             // 
