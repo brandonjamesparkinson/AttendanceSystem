@@ -1,6 +1,6 @@
 ﻿namespace Attendance_System
 {
-    partial class loginFrm
+    partial class FrmLogin
     {
         /// <summary>
         /// Required designer variable.

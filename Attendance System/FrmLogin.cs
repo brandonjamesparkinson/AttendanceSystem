@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Attendance_System
 {
-    public partial class loginFrm : Form
+    public partial class FrmLogin : Form
     {
         public bool loginFlag { get; set; }
         public int UserID { get; set; }
-        public loginFrm()
+        public FrmLogin()
         {
             InitializeComponent();
             loginFlag = false;

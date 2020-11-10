@@ -24,7 +24,6 @@ namespace Attendance_System
         {
             // TODO: This line of code loads data into the 'dataSet1.StudentsTBL' table. You can move, or remove it, as needed.
             this.studentsTBLTableAdapter.Fill(this.dataSet1.StudentsTBL);
-
             lblClassNameOverride.Text = ClassName.ToString();
             lblClassIDOverride.Text = ClassID.ToString();
 

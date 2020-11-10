@@ -41,9 +41,11 @@
             this.lblClassID = new System.Windows.Forms.Label();
             this.btnSave = new MetroFramework.Controls.MetroButton();
             this.studentsTBLTableAdapter = new Attendance_System.DataSet1TableAdapters.StudentsTBLTableAdapter();
+            this.studentsTBLBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsTBLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsTBLBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -54,10 +56,10 @@
             this.studentIDDataGridViewTextBoxColumn,
             this.studentNameDataGridViewTextBoxColumn,
             this.classIDDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.studentsTBLBindingSource;
+            this.dataGridView1.DataSource = this.studentsTBLBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(25, 48);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(491, 234);
+            this.dataGridView1.Size = new System.Drawing.Size(491, 299);
             this.dataGridView1.TabIndex = 0;
             // 
             // studentIDDataGridViewTextBoxColumn
@@ -127,7 +129,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(417, 288);
+            this.btnSave.Location = new System.Drawing.Point(417, 353);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(99, 23);
             this.btnSave.TabIndex = 5;
@@ -138,12 +140,17 @@
             // 
             this.studentsTBLTableAdapter.ClearBeforeFill = true;
             // 
+            // studentsTBLBindingSource1
+            // 
+            this.studentsTBLBindingSource1.DataMember = "StudentsTBL";
+            this.studentsTBLBindingSource1.DataSource = this.dataSet1;
+            // 
             // FrmAddStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(547, 327);
+            this.ClientSize = new System.Drawing.Size(547, 388);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblClassIDOverride);
             this.Controls.Add(this.lblClassID);
@@ -158,6 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsTBLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsTBLBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +185,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn studentIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn classIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource studentsTBLBindingSource1;
     }
 }
