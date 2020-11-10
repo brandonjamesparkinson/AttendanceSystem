@@ -13,6 +13,7 @@ namespace Attendance_System
     public partial class loginFrm : Form
     {
         public bool loginFlag { get; set; }
+        public int UserID { get; set; }
         public loginFrm()
         {
             InitializeComponent();
@@ -22,12 +23,13 @@ namespace Attendance_System
         private void btnLogin_Click(object sender, EventArgs e)
         {
             DataSet1TableAdapters.UsersTableAdapter userAda = new DataSet1TableAdapters.UsersTableAdapter();
-            DataTable dt = userAda.GetDataByUserAndPass(metroTextBoxPassword.Text, metroTextBoxPassword.Text);
+            DataTable dt = userAda.GetDataByUserAndPass(metroTextBoxUser.Text, metroTextBoxPassword.Text);
 
             if (dt.Rows.Count > 0)
             {
-                // valid login
-                MessageBox.Show("Login Successful.");
+                //valid
+                MessageBox.Show("Login Ok");
+                UserID = int.Parse(dt.Rows[0]["UserID"].ToString());
                 loginFlag = true;
             }
             else
@@ -35,6 +37,7 @@ namespace Attendance_System
                 // not valid
                 MessageBox.Show("Access Denied");
                 loginFlag = false;
+
             }
 
             Close();
