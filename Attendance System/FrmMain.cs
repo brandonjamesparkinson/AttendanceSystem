@@ -107,5 +107,65 @@ namespace Attendance_System
                 }
             }
         }
+
+        private void metroButtonClear_Click(object sender, EventArgs e)
+        {
+            AttendanceRecordsTBLTableAdapter ada = new AttendanceRecordsTBLTableAdapter();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[1].Value != null)
+                {
+                    ada.UpdateQuery("", row.Cells[0].Value.ToString(), (int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+                }
+            }
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            // get students
+            StudentsTBLTableAdapter students_adapter = new StudentsTBLTableAdapter();
+            DataTable dt_Students = students_adapter.GetDataByClassID((int)metroComboBox2.SelectedValue);
+
+            AttendanceRecordsTBLTableAdapter ada = new AttendanceRecordsTBLTableAdapter();
+
+
+            int p = 0;
+            int A = 0;
+            int L = 0;
+            int E = 0;
+
+            //loop through students and get the values
+            foreach (DataRow row in dt_Students.Rows)
+            {
+                //Presence count
+                p = (int)ada.GetDataByReport(dateTimePicker2.Value.Month, row[1].ToString(), "present").Rows[0][6];
+
+                // Absence
+                A = (int)ada.GetDataByReport(dateTimePicker2.Value.Month, row[1].ToString(), "absent").Rows[0][6];
+
+                // late
+                L = (int)ada.GetDataByReport(dateTimePicker2.Value.Month, row[1].ToString(), "late").Rows[0][6];
+
+
+                //Execuse
+                E = (int)ada.GetDataByReport(dateTimePicker2.Value.Month, row[1].ToString(), "execused").Rows[0][6];
+
+
+                ListViewItem litem = new ListViewItem();
+                litem.Text = row[1].ToString();
+                litem.SubItems.Add(p.ToString());
+                litem.SubItems.Add(A.ToString());
+                litem.SubItems.Add(L.ToString());
+                litem.SubItems.Add(E.ToString());
+                listView1.Items.Add(litem);
+            }
+        }
+
+        private void metroButtonRegister_Click(object sender, EventArgs e)
+        {
+            FrmRegister reg = new FrmRegister();
+            reg.ShowDialog();
+        }
     }
 }

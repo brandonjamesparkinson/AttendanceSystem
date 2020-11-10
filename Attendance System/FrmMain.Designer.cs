@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.metroButtonRegister = new MetroFramework.Controls.MetroButton();
             this.metroButtonGet = new MetroFramework.Controls.MetroButton();
             this.metroButtonAddStudents = new MetroFramework.Controls.MetroButton();
             this.metroButtonAddClass = new MetroFramework.Controls.MetroButton();
@@ -47,6 +48,17 @@
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.classesTBLBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.classesTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -59,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.attendanceRecordsTBLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesTBLBindingSource1)).BeginInit();
+            this.metroTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classesTBLBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +89,7 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.metroButtonRegister);
             this.metroTabPage1.Controls.Add(this.metroButtonGet);
             this.metroTabPage1.Controls.Add(this.metroButtonAddStudents);
             this.metroTabPage1.Controls.Add(this.metroButtonAddClass);
@@ -93,6 +107,15 @@
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Attendance";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
+            // 
+            // metroButtonRegister
+            // 
+            this.metroButtonRegister.Location = new System.Drawing.Point(671, 408);
+            this.metroButtonRegister.Name = "metroButtonRegister";
+            this.metroButtonRegister.Size = new System.Drawing.Size(85, 23);
+            this.metroButtonRegister.TabIndex = 12;
+            this.metroButtonRegister.Text = "Register";
+            this.metroButtonRegister.Click += new System.EventHandler(this.metroButtonRegister_Click);
             // 
             // metroButtonGet
             // 
@@ -128,6 +151,7 @@
             this.metroButtonClear.Size = new System.Drawing.Size(75, 23);
             this.metroButtonClear.TabIndex = 8;
             this.metroButtonClear.Text = "Clear";
+            this.metroButtonClear.Click += new System.EventHandler(this.metroButtonClear_Click);
             // 
             // metroButtonSave
             // 
@@ -218,6 +242,12 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.metroButton1);
+            this.metroTabPage2.Controls.Add(this.label1);
+            this.metroTabPage2.Controls.Add(this.label2);
+            this.metroTabPage2.Controls.Add(this.dateTimePicker2);
+            this.metroTabPage2.Controls.Add(this.metroComboBox2);
+            this.metroTabPage2.Controls.Add(this.listView1);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 35);
             this.metroTabPage2.Name = "metroTabPage2";
@@ -225,6 +255,94 @@
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Reports";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(451, 39);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(75, 23);
+            this.metroButton1.TabIndex = 16;
+            this.metroButton1.Text = "Get Values";
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(245, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Select Date:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Select Class:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(245, 39);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 13;
+            // 
+            // metroComboBox2
+            // 
+            this.metroComboBox2.DataSource = this.classesTBLBindingSource1;
+            this.metroComboBox2.DisplayMember = "ClassName";
+            this.metroComboBox2.FormattingEnabled = true;
+            this.metroComboBox2.ItemHeight = 23;
+            this.metroComboBox2.Location = new System.Drawing.Point(3, 39);
+            this.metroComboBox2.Name = "metroComboBox2";
+            this.metroComboBox2.Size = new System.Drawing.Size(187, 29);
+            this.metroComboBox2.TabIndex = 12;
+            this.metroComboBox2.ValueMember = "ClassID";
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 121);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(746, 292);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Student";
+            this.columnHeader1.Width = 112;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Presence";
+            this.columnHeader2.Width = 127;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Absences";
+            this.columnHeader3.Width = 148;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Late";
+            this.columnHeader4.Width = 123;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Excused";
+            this.columnHeader5.Width = 102;
             // 
             // classesTBLBindingSource
             // 
@@ -280,6 +398,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.attendanceRecordsTBLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesTBLBindingSource1)).EndInit();
+            this.metroTabPage2.ResumeLayout(false);
+            this.metroTabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classesTBLBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -314,6 +434,18 @@
         private DataSet1TableAdapters.AttendanceRecordsTBLTableAdapter attendanceRecordsTBLTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private MetroFramework.Controls.MetroComboBox metroComboBox2;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private MetroFramework.Controls.MetroButton metroButtonRegister;
     }
 }
 
