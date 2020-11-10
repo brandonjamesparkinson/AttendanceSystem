@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Attendance_System.DataSet1TableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace Attendance_System
     public partial class mainFrm : MetroFramework.Forms.MetroForm
     {
         public int loggedIn { get; set; }
+        public int UserID { get; set; }
+
         public mainFrm()
         {
             InitializeComponent();
@@ -23,7 +26,7 @@ namespace Attendance_System
         {
             if (loggedIn == 0)
             {
-                // open login form
+                //Open Login Form
                 loginFrm newLogin = new loginFrm();
                 newLogin.ShowDialog();
 
@@ -33,9 +36,38 @@ namespace Attendance_System
                 }
                 else
                 {
+                    UserID = newLogin.UserID;
+                    statLblUser.Text = UserID.ToString();
                     loggedIn = 1;
+
+                    this.classesTBLTableAdapter.Fill(this.dataSet1.ClassesTBL);
+
+                    classesTBLBindingSource.Filter = "UserID = '" + UserID.ToString() + "'";
                 }
+
             }
+        }
+
+        private void mainFrm_Load(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void metroButtonAddClass_Click(object sender, EventArgs e)
+        {
+            FrmAddClass addClass = new FrmAddClass();
+            addClass.UserID = this.UserID;
+            addClass.ShowDialog();
+        }
+
+        private void metroButtonAddStudents_Click(object sender, EventArgs e)
+        {
+            FrmAddStudents addStudents = new FrmAddStudents();
+            addStudents.ShowDialog();
+            addStudents.ClassName = metroComboBox1.Text;
+            addStudents.ClassID = (int)metroComboBox1.SelectedValue;
+
         }
     }
 }

@@ -28,19 +28,18 @@ namespace Attendance_System
             if (dt.Rows.Count > 0)
             {
                 //valid
-                MessageBox.Show("Login Ok");
+                MessageBox.Show("Login Successful.");
                 UserID = int.Parse(dt.Rows[0]["UserID"].ToString());
                 loginFlag = true;
+                Close();
             }
             else
             {
                 // not valid
-                MessageBox.Show("Access Denied");
+                MessageBox.Show("Access Denied.");
                 loginFlag = false;
-
             }
 
-            Close();
         }
     }
 }
