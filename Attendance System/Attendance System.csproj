@@ -147,5 +147,6 @@
     <Content Include="MetroFramework.txt" />
     <None Include="Resources\key.gif" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
